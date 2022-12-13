@@ -8,11 +8,27 @@ const gameSchema = new Schema(
             ref: "User"
         }, 
 
-        game: {
+        date: {
+            type: String, 
+            default: Date.now
+        }, 
+
+        time: {
+            type: String, 
+            default: Date.now
+        },
+
+        sport: {
             type: String, 
             enum: ['Basketball', 'Soccer', 'Arm Wresting'], 
             default: 'Basketball'
         }, 
+
+        number_of_players: {
+            type: Number, 
+            min: 1, 
+            max: 10
+        },
 
         skill_level: {
             type: String, 
