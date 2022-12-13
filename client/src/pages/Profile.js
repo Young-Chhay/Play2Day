@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import ThoughtForm from '../components/GameForm';
+import ThoughtForm from '../components/CreateGameForm';
 import ThoughtList from '../components/AllGamesList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -35,6 +35,8 @@ const Profile = () => {
         );
     }
 
+    // all user to see 1/ create a games & 2/ See all User joined game  ( come from CreateGameForm and from AllGameList)
+    // user will have unique id tie to create games. 
     return (
         <div>
             <div className="flex-row justify-center mb-3">
