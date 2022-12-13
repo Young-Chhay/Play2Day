@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// add ref to Game model. 
 const userSchema = new Schema({
   username: {
     type: String,
