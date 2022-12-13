@@ -1,8 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
+// Homepage will display all avail games  : Allgameslist, gameform, NavBar(Header)  for signup login profile  links
+// keep comment out for now. 
+
 import ThoughtList from '../components/AllGamesList';
-import ThoughtForm from '../components/GameForm';
+import ThoughtForm from '../components/CreateGameForm';
 
 import { QUERY_THOUGHTS } from '../utils/queries';
 

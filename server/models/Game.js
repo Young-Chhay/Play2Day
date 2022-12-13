@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const Schema = mongoose.Schema
 
+// add ref to singleGame page. 
 const gameSchema = new Schema(
     {
         user: {

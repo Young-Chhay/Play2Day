@@ -7,11 +7,13 @@ import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
+// Gameform instead. 
 const ThoughtForm = () => {
   const [thoughtText, setThoughtText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
+  // to configure all the variables and connect to Mutation and model. 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
       try {

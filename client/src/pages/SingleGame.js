@@ -7,8 +7,11 @@ import { useQuery } from '@apollo/client';
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 
+// get single game change the name. Display all game info ( time location who createdgame, number player, skill lvl)
+// ref to game model. 
 import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
 
+// single game wit associated comments  
 const SingleThought = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { thoughtId } = useParams();
