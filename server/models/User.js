@@ -28,6 +28,12 @@ const userSchema = new Schema({
 }
 );
 
+  game: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: "Game"
+},
+});
+
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
