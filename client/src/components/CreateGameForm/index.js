@@ -4,14 +4,12 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_GAME } from '../../utils/mutations';
 import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
-import { ADD_GAME } from '../../utils/mutations';
-import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
 // Gameform instead. 
-const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+const CreateGameForm = () => {
+  const [gameText, setGameText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -114,5 +112,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default GameForm;
 export default CreateGameForm;
