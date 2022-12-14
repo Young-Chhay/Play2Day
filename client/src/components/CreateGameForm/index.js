@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_GAME } from '../../utils/mutations';
+import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
 // Gameform instead. 
-const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+const GameForm = () => {
+  const [gameText, setGameText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
   // to configure all the variables and connect to Mutation and model. 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addGame, { error }] = useMutation(ADD_GAME, {
+    update(cache, { data: { addGame } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { games } = cache.readQuery({ query: QUERY_ALL_GAMES });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          query: QUERY_ALL_GAMES,
+          data: { games: [addGame, ...games] },
         });
       } catch (e) {
         console.error(e);
@@ -31,7 +31,7 @@ const ThoughtForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, thoughts: [...me.games, addGame] } },
       });
     },
   });
@@ -40,14 +40,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addGame({
         variables: {
-          thoughtText,
+          gameText,
           thoughtAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setThoughtText('');
+      setGameText('');
     } catch (err) {
       console.error(err);
     }
@@ -57,7 +57,7 @@ const ThoughtForm = () => {
     const { name, value } = event.target;
 
     if (name === 'thoughtText' && value.length <= 280) {
-      setThoughtText(value);
+      setGameText(value);
       setCharacterCount(value.length);
     }
   };
@@ -81,9 +81,9 @@ const ThoughtForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
+                name="gameText"
+                placeholder="Here is all of our games"
+                value={gameText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -112,4 +112,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default GameForm;
