@@ -14,9 +14,8 @@ const gameSchema = new Schema(
         },
 
         sport: {
-            type: Array, 
-            enum: ['Basketball', 'Soccer', 'Arm Wresting'], 
-            default: 'Basketball'
+            type: String,
+            required: true,
         }, 
 
         number_of_players: {
@@ -26,13 +25,13 @@ const gameSchema = new Schema(
         },
 
         skill_level: {
-            type: Array, 
-            enum: ['beginner', 'intermediate', 'advanced']
+            type: String,
+            required: true,
         }, 
 
         location: {
-            type: Array, 
-            enum: ['Eastgate Park - Garden Grove', 'Hart Park - Orange', 'Irvine Park - Irvine']
+            type: String,
+            required: true,
         }, 
         createdAt: {
             type: Date,
