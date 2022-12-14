@@ -14,7 +14,8 @@ const gameSchema = new Schema(
         },
 
         sport: {
-            type: String
+            type: String,
+            required: true,
         }, 
 
         number_of_players: {
@@ -24,11 +25,13 @@ const gameSchema = new Schema(
         },
 
         skill_level: {
-            type: String
+            type: String,
+            required: true,
         }, 
 
         location: {
-            type: String
+            type: String,
+            required: true,
         }, 
         createdAt: {
             type: Date,

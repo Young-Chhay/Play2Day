@@ -4,12 +4,14 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_GAME } from '../../utils/mutations';
 import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
+import { ADD_GAME } from '../../utils/mutations';
+import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
 // Gameform instead. 
-const GameForm = () => {
-  const [gameText, setGameText] = useState('');
+const ThoughtForm = () => {
+  const [thoughtText, setThoughtText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -21,7 +23,7 @@ const GameForm = () => {
 
         cache.writeQuery({
           query: QUERY_ALL_GAMES,
-          data: { games: [addGame, ...games] },
+          data: { Games: [addGame, ...games] },
         });
       } catch (e) {
         console.error(e);
@@ -31,7 +33,7 @@ const GameForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.games, addGame] } },
+        data: { me: { ...me, games: [...me.games, addGame] } },
       });
     },
   });
@@ -43,7 +45,7 @@ const GameForm = () => {
       const { data } = await addGame({
         variables: {
           gameText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          gameAuthor: Auth.getProfile().data.username,
         },
       });
 
@@ -56,7 +58,7 @@ const GameForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
+    if (name === 'gameText' && value.length <= 280) {
       setGameText(value);
       setCharacterCount(value.length);
     }
@@ -82,7 +84,7 @@ const GameForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="gameText"
-                placeholder="Here is all of our games"
+                placeholder="Here's a new game..."
                 value={gameText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -92,7 +94,7 @@ const GameForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Game
               </button>
             </div>
             {error && (
@@ -113,3 +115,4 @@ const GameForm = () => {
 };
 
 export default GameForm;
+export default CreateGameForm;
