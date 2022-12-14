@@ -4,14 +4,14 @@ import { useQuery } from '@apollo/client';
 // Homepage will display all avail games  : Allgameslist, gameform, NavBar(Header)  for signup login profile  links
 // keep comment out for now. 
 
-import ThoughtList from '../components/AllGamesList';
-import ThoughtForm from '../components/CreateGameForm';
+import AllGamesList from '../components/AllGamesList';
+import CreateGameForm from '../components/CreateGameForm';
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_THOUGHTS);
-    const thoughts = data?.thoughts || [];
+    const { loading, data } = useQuery(QUERY_ME);
+    const games = data?.games || [];
 
     return (
         <main>
@@ -20,14 +20,14 @@ const Home = () => {
                     className="col-12 col-md-10 mb-3 p-3"
                     style={{ border: '1px dotted #1a1a1a' }}
                 >
-                    <ThoughtForm />
+                    <CreateGameForm />
                 </div>
                 <div className="col-12 col-md-8 mb-3">
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
-                        <ThoughtList
-                            thoughts={thoughts}
+                        <AllGamesList
+                            games={games}
                             title="Some Feed for Thought(s)..."
                         />
                     )}
