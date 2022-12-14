@@ -20,6 +20,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+
+  game: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: "Game"
+},
 });
 
 userSchema.pre('save', async function (next) {
