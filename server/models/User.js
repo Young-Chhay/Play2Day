@@ -20,6 +20,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  game: {
+    type: Schema.Types.ObjectId, 
+    ref: "Game"
+},
 },
 {
   toJSON: {
@@ -27,12 +31,6 @@ const userSchema = new Schema({
   },
 }
 );
-
-  game: {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "Game"
-},
-});
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {

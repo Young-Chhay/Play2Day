@@ -1,26 +1,20 @@
 const { Schema, model } = require('mongoose');
-const Schema = mongoose.Schema
 
 // add ref to singleGame page. 
 const gameSchema = new Schema(
     {
-        user: {
-            type: mongoose.Schema.Types.ObjectId, 
-            ref: "User"
-        }, 
-
         date: {
-            type: String, 
+            type: Date, 
             default: Date.now
         }, 
 
         time: {
-            type: String, 
+            type: Date, 
             default: Date.now
         },
 
         sport: {
-            type: String, 
+            type: Array, 
             enum: ['Basketball', 'Soccer', 'Arm Wresting'], 
             default: 'Basketball'
         }, 
@@ -32,12 +26,12 @@ const gameSchema = new Schema(
         },
 
         skill_level: {
-            type: String, 
+            type: Array, 
             enum: ['beginner', 'intermediate', 'advanced']
         }, 
 
         location: {
-            type: String, 
+            type: Array, 
             enum: ['Eastgate Park - Garden Grove', 'Hart Park - Orange', 'Irvine Park - Irvine']
         }
     }, {
@@ -46,4 +40,4 @@ const gameSchema = new Schema(
 
 const Game = model('Game', gameSchema);
 
-module.exports = mongoose.model('Game', gameSchema);
+module.exports = Game;
