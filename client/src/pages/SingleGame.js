@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm';
+// import CommentList from '../components/CommentList';
+// import CommentForm from '../components/CommentForm';
 
 // get single game change the name. Display all game info ( time location who createdgame, number player, skill lvl)
 // ref to game model. 
@@ -69,4 +69,4 @@ const SingleGame = () => {
   );
 };
 
-export default SingleThought;
+export default SingleGame;
