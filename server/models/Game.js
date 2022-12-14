@@ -33,10 +33,15 @@ const gameSchema = new Schema(
         location: {
             type: Array, 
             enum: ['Eastgate Park - Garden Grove', 'Hart Park - Orange', 'Irvine Park - Irvine']
+        }, 
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
         }
-    }, {
-        timestamp: true 
-    });
+    }, 
+        
+);
 
 const Game = model('Game', gameSchema);
 
