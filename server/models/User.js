@@ -20,7 +20,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  game: {
+  games: {
     type: Schema.Types.ObjectId, 
     ref: "Game"
 },
