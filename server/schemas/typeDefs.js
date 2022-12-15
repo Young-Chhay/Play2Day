@@ -10,11 +10,11 @@ const typeDefs = gql`
   }
 
   type Game {
-    _id: ID!
+    _id: ID
     date: String
     time: String
     sport: String
-    Int_of_players: Int
+    number_of_players: Int
     skill_level: String
     location: String
   }

@@ -1,72 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+// import { LOGIN_USER } from '../utils/mutations';
+import { ADD_GAME } from '../utils/mutations';
 
-// Import the `useParams()` hook
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import Auth from '../utils/auth';
 
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+const CreateGame = (props) => {
+  const [formState, setFormState] = useState({ sport: '', difficulty_level: '' });
+  const [login, { error, data }] = useMutation(ADD_GAME);
 
-// get single game change the name. Display all game info ( time location who createdgame, number player, skill lvl)
-// ref to game model. 
-import { QUERY_SINGLE_GAME } from '../utils/queries';
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-// single game wit associated comments  
-const SingleGame = () => {
-  // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  const { gameId } = useParams();
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-  const { loading, data } = useQuery(QUERY_SINGLE_GAME, {
-    // pass URL parameter
-    variables: { gameId: gameId },
-  });
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
 
-  const game = data?.game || {};
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+    // clear form values
+    setFormState({
+      sport: '',
+      diffficulty_level: '',
+    });
+  };
+
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {game.user} <br />
-        <span style={{ fontSize: '1rem' }}>
-          created this game on {game.createdAt}
-        </span>
-      </h3>
-      <div className="bg-light py-4">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {game.date} <br />
-        <span style={{ fontSize: '1rem' }}>
-          number of players {game.number_of_players}
-        </span>
-      </h3>
-      </div>
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Create Game</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder=""
+                  name="sport"
+                  type="sport"
+                  value={formState.sport}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="difficulty_level"
+                  type="diffficulty_level"
+                  value={formState.difficulty_level}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
 
-      <div className="bg-light py-4">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {game.sport} <br />
-        <span style={{ fontSize: '1rem' }}>
-          skill level{game.skill_level}
-        </span>
-      </h3>
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-
-      <div className="bg-light py-4">
-         <br />
-        <span style={{ fontSize: '1rem' }}>
-          Location:  {game.location}
-        </span>
-      </div>
-
-      {/* <div className="my-5">
-        <CommentList comments={thought.comments} />
-      </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <CommentForm thoughtId={thought._id} />
-      </div> */}
-    </div>
+    </main>
   );
 };
 
-export default SingleGame;
+export default CreateGame;
