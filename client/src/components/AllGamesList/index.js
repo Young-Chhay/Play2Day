@@ -1,4 +1,4 @@
-import React from 'reactAllGamesList';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // change to Gamelist. home will ref this component to display allGamelist. show time, location. 
