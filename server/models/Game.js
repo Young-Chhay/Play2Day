@@ -37,9 +37,9 @@ const gameSchema = new Schema(
             type: Date,
             default: Date.now,
             get: (timestamp) => dateFormat(timestamp),
-        }
+          },
     }, 
-        
+     
 );
 
 const Game = model('Game', gameSchema);

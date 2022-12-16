@@ -1,13 +1,15 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import CreateGameForm from '../components/CreateGameForm';
 import AllGamesList from '../components/AllGamesList';
-
+import Auth from '../utils/auth';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import Auth from '../utils/auth';
+import CreateGameForm from '../components/CreateGameForm';
+
+
+
+
 
 const Profile = () => {
     const { username: userParam } = useParams();
