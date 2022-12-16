@@ -4,12 +4,12 @@ const { Schema, model } = require('mongoose');
 const gameSchema = new Schema(
     {
         date: {
-            type: Date, 
+            type: String, 
             default: Date.now
         }, 
 
         time: {
-            type: Date, 
+            type: String, 
             default: Date.now
         },
 
@@ -34,7 +34,7 @@ const gameSchema = new Schema(
             required: true,
         }, 
         createdAt: {
-            type: Date,
+            type: String,
             default: Date.now,
             get: (timestamp) => dateFormat(timestamp),
           },

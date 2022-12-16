@@ -8,7 +8,6 @@ export const QUERY_USER = gql`
       email
       games {
         _id
-        user
         date
         sport
         number_of_players
@@ -21,16 +20,14 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_ALL_GAMES = gql`
-  query getAllGames {
+  query games {
     games {
         _id
-        user
         date
         sport
         number_of_players
         skill_level
         location
-        createdAt
     }
   }
 `;
@@ -43,7 +40,6 @@ export const QUERY_ME = gql`
       email
       games {
         _id
-        user
         date
         sport
         number_of_players
@@ -55,10 +51,9 @@ export const QUERY_ME = gql`
   }
 `;
 export const QUERY_SINGLE_GAME = gql`
-    query getSingleGame($gameId: ID!) {
-        singleGame(gameId: $gameId) {
+    query game ($gameId: ID!) {
+        game(gameId: $gameId) {
             _id
-            user
             date
             sport
             number_of_players

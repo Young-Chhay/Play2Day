@@ -31,7 +31,7 @@ export const ADD_USER = gql`
 
 // define mutation for creating a game
 export const ADD_GAME = gql`
-    mutation addGame($date: String!, $time: String!, $sport: String, $number_of_players: Number, $skill_level: String, $location: String) {
+    mutation addGame($date: String!, $time: String!, $sport: String, $number_of_players: Int, $skill_level: String, $location: String) {
         addGame(date: $date, time: $time, sport: $sport, number_of_players: $number_of_players, skill_level: $skill_level, location: $location) {
             date
             time
