@@ -48,15 +48,20 @@ const resolvers = {
 
       return { token, user };
     },
-    addGame: async (parent, { gameText }, context) => {
+    addGame: async (parent, 
+      { gameName, date, time, sport, number_of_players, skill_level, location }, 
+      context
+    ) => {
       if (context.user) {
         const game = await Game.create({
+          gameName,
           date,
           time,
           sport,
           number_of_players,
           skill_level,
-          location
+          location,
+          gameCreator: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -72,7 +77,7 @@ const resolvers = {
       if (context.user) {
         const game = await Game.findOneAndDelete({
           _id: gameId,
-          gameAuthor: context.user.username,
+          gameCreator: context.user.username,
         });
 
         await User.findOneAndUpdate(

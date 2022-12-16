@@ -13,7 +13,6 @@ export const QUERY_USER = gql`
         number_of_players
         skill_level
         location
-        
       }
     }
   }
@@ -59,7 +58,6 @@ export const QUERY_SINGLE_GAME = gql`
             number_of_players
             skill_level
             location
-            
         }
     }
 `
