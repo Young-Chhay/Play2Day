@@ -64,7 +64,7 @@ const CreateGameForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Create a new game for people to join.</h3>
 
       {Auth.loggedIn() ? (
         <>
