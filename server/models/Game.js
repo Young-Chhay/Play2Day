@@ -8,12 +8,12 @@ const gameSchema = new Schema(
             require: true,
         },
         date: {
-            type: Date, 
+            type: String, 
             default: Date.now
         }, 
 
         time: {
-            type: Date, 
+            type: String, 
             default: Date.now
         },
 
@@ -44,7 +44,7 @@ const gameSchema = new Schema(
         },
         
         createdAt: {
-            type: Date,
+            type: String,
             default: Date.now,
             get: (timestamp) => dateFormat(timestamp),
           },

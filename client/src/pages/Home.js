@@ -9,6 +9,7 @@ import { QUERY_ALL_GAMES } from '../utils/queries';
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ALL_GAMES);
   const games = data?.games || [];
+  console.log(games)
 
   return (
     <main>

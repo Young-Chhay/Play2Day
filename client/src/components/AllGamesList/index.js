@@ -24,7 +24,7 @@ const AllGamesList = ({
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${game.gameAuthor}`}
+                  to={`/me/${game.gameAuthor}`}
                 >
                   {game.gameAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
