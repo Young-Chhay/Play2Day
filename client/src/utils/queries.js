@@ -6,7 +6,7 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      game {
+      games {
         _id
         user
         date
