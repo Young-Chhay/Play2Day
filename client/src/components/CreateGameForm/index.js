@@ -5,15 +5,20 @@ import { useMutation } from '@apollo/client';
 import { ADD_GAME } from '../../utils/mutations';
 import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
 
+import styles from "./index.module.css";
 import Auth from '../../utils/auth';
 
 // Gameform instead. 
 const CreateGameForm = () => {
-  const [gameText, setGameText] = useState('');
-
-  const [characterCount, setCharacterCount] = useState(0);
-
-  // to configure all the variables and connect to Mutation and model. 
+  const [gameName, setGameName] = useState("");
+  const [sport, setSport] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [location, setLocation] = useState("");
+  const [number_of_players, setNumber_of_players] = useState("");
+  const [skill_level, setSkill_level] = useState("")
+  
+    // to configure all the variables and connect to Mutation and model. 
   const [addGame, { error }] = useMutation(ADD_GAME, {
     update(cache, { data: { addGame } }) {
       try {
@@ -40,67 +45,166 @@ const CreateGameForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addGame({
+      await addGame({
         variables: {
-          gameText,
-          gameAuthor: Auth.getProfile().data.username,
+          gameName,
+          sport,
+          date,
+          time,
+          location,
+          number_of_players,
+          skill_level,
+          gameCreator: Auth.getProfile().data.username,
         },
       });
 
-      setGameText('');
+      setGameName('');
+      setSport('');
+      setDate('');
+      setTime('');
+      setLocation('');
+      setNumber_of_players('');
+      setSkill_level('');
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === 'gameText' && value.length <= 280) {
-      setGameText(value);
-      setCharacterCount(value.length);
-    }
+  const handleNameChange = (event) => {
+    const value = event.target.value;
+    setGameName(value);
   };
+
+  const handleSportChange = (event) => {
+    const value = event.target.value;
+    setSport(value);
+  };
+
+  const handleDateChange = (event) => {
+    const value = event.target.value;
+    setDate(value);
+  };
+
+  const handleTimeChange = (event) => {
+    const value = event.target.value;
+    setTime(value);
+  };
+
+  const handleLocationChange = (event) => {
+    const value = event.target.value;
+    setLocation(value);
+  };
+
+  const handleNumber_of_players = (event) => {
+    const value = event.target.value;
+    setNumber_of_players(value);
+  };
+
+  const handleSkill_levelChange = (event) => {
+    const value = event.target.value;
+    setSkill_level(value);
+  };
+
+
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
-
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="gameText"
-                placeholder="Here's a new game..."
-                value={gameText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
+          <div className={styles.container}>
+            <form className={styles.gameForm} onSubmit={handleFormSubmit}>
+              <h3>Add a new game for people to join</h3>
+              <fieldset>
+                <input
+                  placeholder="Enter game name"
+                  type="text"
+                  tabindex="1"
+                  name="gameName"
+                  value={gameName}
+                  onChange={handleNameChange}
+                  required
+                  autofocus
+                />
+              </fieldset>
+              <fieldset>
+                <input
+                  placeholder="Enter sport"
+                  type="text"
+                  tabindex="2"
+                  name="sport"
+                  value={sport}
+                  onChange={handleSportChange}
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input
+                  placeholder="Set the date of the game"
+                  type="text"
+                  tabindex="3"
+                  name="date"
+                  value={date}
+                  onChange={handleDateChange}
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input
+                  placeholder="Set the game time"
+                  type="text"
+                  tabindex="4"
+                  name="time"
+                  value={time}
+                  onChange={handleTimeChange}
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input
+                  placeholder="Set the game location"
+                  type="text"
+                  tabindex="5"
+                  name="location"
+                  value={location}
+                  onChange={handleLocationChange}
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input
+                  placeholder="Select the number of players"
+                  type="text"
+                  tabindex="6"
+                  name="numberOfPlayers"
+                  value={number_of_players}
+                  onChange={handleNumber_of_players}
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input
+                  placeholder="Select the targeted game skill level"
+                  type="text"
+                  tabindex="7"
+                  name="skillLevel"
+                  value={skill_level}
+                  onChange={handleSkill_levelChange}
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <button name="submit" type="submit" data-submit="...Sending">
+                  Create Game
+                </button>
+              </fieldset>
+            </form>
+          </div>
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Game
-              </button>
+          {error && (
+            <div className="col-12 my-3 bg-danger text-white p-3">
+              {error.message}
             </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
-          </form>
+          )}
         </>
       ) : (
         <p>

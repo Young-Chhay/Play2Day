@@ -3,13 +3,17 @@ const { Schema, model } = require('mongoose');
 // add ref to singleGame page. 
 const gameSchema = new Schema(
     {
+        gameName: {
+            type: String,
+            require: true,
+        },
         date: {
-            type: Date, 
+            type: String, 
             default: Date.now
         }, 
 
         time: {
-            type: Date, 
+            type: String, 
             default: Date.now
         },
 
@@ -33,8 +37,14 @@ const gameSchema = new Schema(
             type: String,
             required: true,
         }, 
+
+        gameCreator: {
+            type: String,
+            required: true,
+        },
+        
         createdAt: {
-            type: Date,
+            type: String,
             default: Date.now,
             get: (timestamp) => dateFormat(timestamp),
           },
