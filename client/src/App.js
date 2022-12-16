@@ -61,6 +61,10 @@ function App() {
                 element={<Signup />}
               />
               <Route 
+                path="creategame"
+                element={<SingleGame />}
+              />
+              <Route 
                 path="/me"
                 element={<Profile />}
               />
