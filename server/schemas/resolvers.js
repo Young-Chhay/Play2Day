@@ -53,7 +53,7 @@ const resolvers = {
       { gameName, date, time, sport, number_of_players, skill_level, location },
       context
     ) => {
-      if (context) {
+      if (context.user) {
         const game = await Game.create({
           gameName,
           date,
@@ -72,7 +72,7 @@ const resolvers = {
 
         return game;
       }
-      // throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError('You need to be logged in!');
     },
     removeGame: async (parent, { gameId }, context) => {
       if (context.user) {

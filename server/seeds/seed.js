@@ -6,7 +6,7 @@ const gameData = require('./gameSeeds.json');
 db.once('open', async () => {
   await Game.deleteMany({});
 
-  const technologies = await Game.insertMany(gameData);
+  const gamesdb = await Game.insertMany(gameData);
 
   console.log('games seeded!');
   process.exit(0);
