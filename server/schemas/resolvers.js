@@ -48,8 +48,9 @@ const resolvers = {
 
       return { token, user };
     },
-    addGame: async (parent, 
-      { gameName, date, time, sport, number_of_players, skill_level, location }, 
+    addGame: async (
+      parent,
+      { gameName, date, time, sport, number_of_players, skill_level, location },
       context
     ) => {
       if (context) {

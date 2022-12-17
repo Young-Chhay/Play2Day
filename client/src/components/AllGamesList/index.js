@@ -26,7 +26,7 @@ const AllGamesList = ({
                   className="text-light"
                   to={`/me/${game.gameAuthor}`}
                 >
-                  {game.gameAuthor} <br />
+                  {game.gameCreator} <br />
                   <span style={{ fontSize: '1rem' }}>
                     Type of Sport : {game.sport}
                   </span>

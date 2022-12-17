@@ -7,12 +7,13 @@ export const QUERY_USER = gql`
       username
       email
       games {
-        _id
+        gameName
         date
         sport
         number_of_players
         skill_level
         location
+        gameCreator
       }
     }
   }
@@ -39,6 +40,7 @@ export const QUERY_ME = gql`
       email
       games {
         _id
+        gameName
         date
         sport
         number_of_players
@@ -48,6 +50,7 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
 export const QUERY_SINGLE_GAME = gql`
     query game ($gameId: ID!) {
         game(gameId: $gameId) {
