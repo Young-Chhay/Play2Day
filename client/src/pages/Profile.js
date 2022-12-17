@@ -8,11 +8,6 @@ import Auth from '../utils/auth';
 import { QUERY_USER, QUERY_ME, } from '../utils/queries';
 
 
-
-
-
-
-
 const Profile = () => {
     const { username: userParam } = useParams();
 

@@ -62,13 +62,13 @@ const resolvers = {
           number_of_players,
           skill_level,
           location,
-          // gameCreator: context.user.username,
+          gameCreator: context.user.username,
         });
 
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $addToSet: { games: game._id } }
-        // );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { games: game._id } }
+        );
 
         return game;
       }

@@ -7,6 +7,7 @@ const gameSchema = new Schema(
             type: String,
             require: true,
         },
+
         date: {
             type: String, 
             default: Date.now
@@ -38,10 +39,10 @@ const gameSchema = new Schema(
             required: true,
         }, 
 
-        // gameCreator: {
-        //     type: String,
-        //     required: true,
-        // },
+        gameCreator: {
+            type: String,
+            required: true,
+        },
     }, 
      
 );
