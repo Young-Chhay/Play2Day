@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form'
 
 import { ADD_GAME } from '../../utils/mutations';
 import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
@@ -131,11 +131,11 @@ const CreateGameForm = () => {
                 />
               </fieldset>
               <fieldset>
-                <select onChange={handleSportChange} value={sport} type="text">
+                <select onChange={handleSportChange} value={sport} type="text" tabIndex="2" required>
                   <option>Select a sport</option>
-                  <option value="Basketball">Basketball</option>
-                  <option value="Baseball">Baseball</option>
-                  <option value="Soccer">Soccer</option>
+                  <option value="Basketball">Basketball 🏀</option>
+                  <option value="Baseball">Baseball ⚾</option>
+                  <option value="Soccer">Soccer ⚽</option>
                 </select>
                 {/* <input
                   placeholder="Enter sport"
@@ -170,7 +170,7 @@ const CreateGameForm = () => {
                 />
               </fieldset>
               <fieldset>
-                <select onChange={handleLocationChange} value={location} type="text">
+                <select onChange={handleLocationChange} value={location} type="text" tabIndex="5" required>
                   <option>Set a location for the game</option>
                   <option value="Irvine">Irvine Park, Irvine</option>
                   <option value="Orange">Hart Park, Orange</option>
@@ -197,7 +197,7 @@ const CreateGameForm = () => {
                 />
               </fieldset>
               <fieldset>
-                <select onChange={handleSkill_levelChange} value={skill_level} type="text">
+                <select onChange={handleSkill_levelChange} value={skill_level} type="text" tabIndex="7" required>
                   <option>Set the desired skill level of the players</option>
                   <option value="Nubz">Nubz</option>
                   <option value="Meiocre">Mediocre</option>

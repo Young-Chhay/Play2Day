@@ -71,14 +71,16 @@ const AllGamesList = ({
                 </>
               )}
             </h4>
+            {/* Update this code to be game.user to pull all the users who signed up for the game */}
             <div className="card-body bg-light p-2">
               <p>{game.date}</p>
             </div>
+            {/* Change this button so that instead of a link, it's an event listener for other users who have logged in can join the game */}
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/games/${game._id}`}
             >
-              Join the discussion on this game.
+              Join this game.
             </Link>
           </div>
         ))}

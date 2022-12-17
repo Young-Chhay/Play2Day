@@ -19,7 +19,14 @@
     font: 400 12px/16px "Poppins", Helvetica, Arial, sans-serif;
   }
   
-  .gameForm select[type="text"],
+  .gameForm select {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 100%;
+    font: 400 12px/16px "Poppins", Helvetica, Arial, sans-serif;
+    color: #888;
+  }
 
   fieldset {
     border: medium none !important;
