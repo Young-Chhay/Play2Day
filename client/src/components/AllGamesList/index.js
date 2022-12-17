@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from "./index.module.css"
 
 
 // change to Gamelist. home will ref this component to display allGamelist. show time, location. 
@@ -15,16 +16,16 @@ const AllGamesList = ({
   }
   
   return (
-    <div>
+    <div className={styles.cardFrame}>
       {showGameTitle && <h3>{gameTitle}</h3>}
       {games &&
         games.map((game) => (
-          <div key={game._id} className="card mb-3">
+          <div key={game._id} className={styles.card}>
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/me/${game.gameAuthor}`}
+                  to={`/me/${game.gameCreator}`}
                 >
                   {game.gameCreator} <br />
                   <div>
@@ -66,7 +67,7 @@ const AllGamesList = ({
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this game on {game.createdAt}
+                    {game.user}'s Game
                   </span>
                 </>
               )}

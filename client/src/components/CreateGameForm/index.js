@@ -58,7 +58,7 @@ const CreateGameForm = () => {
           location,
           number_of_players,
           skill_level,
-          // gameCreator: Auth.getProfile().data.username,
+          gameCreator: Auth.getProfile().data.username,
         },
       });
 
