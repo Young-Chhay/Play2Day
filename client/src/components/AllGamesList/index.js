@@ -28,6 +28,9 @@ const AllGamesList = ({
                 >
                   {game.gameCreator} <br />
                   <span style={{ fontSize: '1rem' }}>
+                    Game Name : {game.gameName}
+                  </span>
+                  <span style={{ fontSize: '1rem' }}>
                     Type of Sport : {game.sport}
                   </span>
                   <span style={{ fontSize: '1rem' }}>
