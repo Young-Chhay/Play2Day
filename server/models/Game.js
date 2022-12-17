@@ -14,8 +14,8 @@ const gameSchema = new Schema(
         }, 
 
         time: {
-            type: String, 
-            default: Date.now
+            type: String,
+            require: true,
         },
 
         sport: {
