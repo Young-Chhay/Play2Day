@@ -45,6 +45,7 @@ const typeDefs = gql`
       number_of_players: String
       skill_level: String!
       location: String!
+      gameCreator: String
     ): Game
     removeGame(gameId: ID!): Game
   }

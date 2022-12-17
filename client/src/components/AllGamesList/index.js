@@ -33,48 +33,23 @@ const AllGamesList = ({
                       Game ID: {game.gameName}
                     </span>
                   </div>
-                  <div>
-                    <span style={{ fontSize: '1rem' }}>
-                      Sport: {game.sport}
-                    </span>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '1rem' }}>
-                      Date: {game.date}
-                    </span>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '1rem' }}>
-                      Time: {game.time}
-                    </span>  
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '1rem' }}>
-                      Number of Players: {game.number_of_players}
-                    </span>  
-                  </div>              
-                  <div>
-                    <span style={{ fontSize: '1rem' }}>
-                      Skill Level : {game.skill_level}
-                    </span>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '1rem' }}>
-                      Location : {game.location}
-                    </span>
-                  </div>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    {game.user}'s Game
+                    {game.gameCreator}'s Game
                   </span>
                 </>
               )}
             </h4>
             {/* Update this code to be game.user to pull all the users who signed up for the game */}
             <div className="card-body bg-light p-2">
-              <p>{game.date}</p>
+              <div>Sport: {game.sport}</div>
+              <div>Date: {game.date}</div>
+              <div>Time: {game.time}</div>
+              <div>Location: {game.location}</div>
+              <div>Number of Players: {game.number_of_players}</div>
+              <div>Skill Level: {game.skill_level}</div>
             </div>
             {/* Change this button so that instead of a link, it's an event listener for other users who have logged in can join the game */}
             <Link
