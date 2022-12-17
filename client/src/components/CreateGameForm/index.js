@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import form from 'react-bootstrap/Form'
 
 import { ADD_GAME } from '../../utils/mutations';
 import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
@@ -130,7 +131,13 @@ const CreateGameForm = () => {
                 />
               </fieldset>
               <fieldset>
-                <input
+                <select onChange={handleSportChange} value={sport} type="text">
+                  <option>Select a sport</option>
+                  <option value="Basketball">Basketball</option>
+                  <option value="Baseball">Baseball</option>
+                  <option value="Soccer">Soccer</option>
+                </select>
+                {/* <input
                   placeholder="Enter sport"
                   type="text"
                   tabIndex="2"
@@ -138,7 +145,7 @@ const CreateGameForm = () => {
                   value={sport}
                   onChange={handleSportChange}
                   required
-                />
+                /> */}
               </fieldset>
               <fieldset>
                 <input
@@ -163,7 +170,13 @@ const CreateGameForm = () => {
                 />
               </fieldset>
               <fieldset>
-                <input
+                <select onChange={handleLocationChange} value={location} type="text">
+                  <option>Set a location for the game</option>
+                  <option value="Irvine">Irvine Park, Irvine</option>
+                  <option value="Orange">Hart Park, Orange</option>
+                  <option value="GardenGrove">Eastgate Park, Garden Grove</option>
+                </select>
+                {/* <input
                   placeholder="Set the game location"
                   type="text"
                   tabIndex="5"
@@ -171,7 +184,7 @@ const CreateGameForm = () => {
                   value={location}
                   onChange={handleLocationChange}
                   required
-                />
+                /> */}
               </fieldset>
               <fieldset>
                 <input
@@ -181,11 +194,16 @@ const CreateGameForm = () => {
                   name="numberOfPlayers"
                   value={number_of_players}
                   onChange={handleNumber_of_players}
-                  // required
                 />
               </fieldset>
               <fieldset>
-                <input
+                <select onChange={handleSkill_levelChange} value={skill_level} type="text">
+                  <option>Set the desired skill level of the players</option>
+                  <option value="Nubz">Nubz</option>
+                  <option value="Meiocre">Mediocre</option>
+                  <option value="L33t">L33t</option>
+                </select>
+                {/* <input
                   placeholder="Select the targeted game skill level"
                   type="text"
                   tabIndex="7"
@@ -193,7 +211,7 @@ const CreateGameForm = () => {
                   value={skill_level}
                   onChange={handleSkill_levelChange}
                   required
-                />
+                /> */}
               </fieldset>
               <fieldset>
                 <button name="submit" type="submit" data-submit="...Sending">
