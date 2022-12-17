@@ -23,7 +23,7 @@ const gameSchema = new Schema(
         }, 
 
         number_of_players: {
-            type: Number, 
+            type: String, 
             min: 1, 
             max: 10
         },
@@ -38,16 +38,10 @@ const gameSchema = new Schema(
             required: true,
         }, 
 
-        gameCreator: {
-            type: String,
-            required: true,
-        },
-        
-        createdAt: {
-            type: String,
-            default: Date.now,
-            get: (timestamp) => dateFormat(timestamp),
-          },
+        // gameCreator: {
+        //     type: String,
+        //     required: true,
+        // },
     }, 
      
 );

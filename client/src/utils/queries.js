@@ -44,7 +44,6 @@ export const QUERY_ME = gql`
         number_of_players
         skill_level
         location
-        createdAt
       }
     }
   }
