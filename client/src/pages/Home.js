@@ -13,23 +13,18 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <CreateGameForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <AllGamesList
-              games={games}
-              title="Check out all these games!"
-            />
-          )}
-        </div>
+      <div>
+        <h1>Check out these available games:</h1>
+      </div>
+      <div>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <AllGamesList
+            games={games}
+            title="Check out all these games!"
+          />
+        )}
       </div>
     </main>
   );

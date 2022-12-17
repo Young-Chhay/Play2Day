@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from "./index.module.css"
 
 
 // change to Gamelist. home will ref this component to display allGamelist. show time, location. 
@@ -15,16 +16,16 @@ const AllGamesList = ({
   }
   
   return (
-    <div>
+    <div className={styles.cardFrame}>
       {showGameTitle && <h3>{gameTitle}</h3>}
       {games &&
         games.map((game) => (
-          <div key={game._id} className="card mb-3">
+          <div key={game._id} className={styles.card}>
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/me/${game.gameAuthor}`}
+                  to={`/me/${game.gameCreator}`}
                 >
                   {game.gameCreator} <br />
                   <div>
@@ -66,19 +67,21 @@ const AllGamesList = ({
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this game on {game.createdAt}
+                    {game.user}'s Game
                   </span>
                 </>
               )}
             </h4>
+            {/* Update this code to be game.user to pull all the users who signed up for the game */}
             <div className="card-body bg-light p-2">
               <p>{game.date}</p>
             </div>
+            {/* Change this button so that instead of a link, it's an event listener for other users who have logged in can join the game */}
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/games/${game._id}`}
             >
-              Join the discussion on this game.
+              Join this game.
             </Link>
           </div>
         ))}
