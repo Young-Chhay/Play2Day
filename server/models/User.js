@@ -22,10 +22,10 @@ const userSchema = new Schema({
   },
   games: [
     {
-      type: Schema.Types.ObjectId, 
-      ref: 'Game'
-    },
-  ]
+    type: Schema.Types.ObjectId, 
+    ref: 'Game'
+  },
+],
 },
 {
   toJSON: {

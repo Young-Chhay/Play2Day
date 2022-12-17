@@ -33,12 +33,15 @@ const CreateGameForm = () => {
       }
 
       // update me object's cache
+      try {
       const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
+      cache.updateQuery({
         query: QUERY_ME,
         data: { me: { ...me, games: [...me.games, addGame] } },
       });
-    },
+    } catch (e) {
+      console.log(error)
+    }},
   });
 
   const handleFormSubmit = async (event) => {
@@ -54,7 +57,7 @@ const CreateGameForm = () => {
           location,
           number_of_players,
           skill_level,
-          gameCreator: Auth.getProfile().data.username,
+          // gameCreator: Auth.getProfile().data.username,
         },
       });
 
@@ -178,7 +181,7 @@ const CreateGameForm = () => {
                   name="numberOfPlayers"
                   value={number_of_players}
                   onChange={handleNumber_of_players}
-                  required
+                  // required
                 />
               </fieldset>
               <fieldset>

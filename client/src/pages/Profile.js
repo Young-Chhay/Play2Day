@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import CreateGameForm from '../components/CreateGameForm';
@@ -19,7 +19,7 @@ const Profile = () => {
     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
         variables: { username: userParam },
     });
-
+    // const user = [data]
     const user = data?.me || data?.user || {};
     // navigate to personal profile page if username is yours
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -56,9 +56,9 @@ const Profile = () => {
                         showUsername={false}
                     />
                     
-                    <Link className="text-light" to="/">
+                    {/* <Link className="text-light" to="/">
             <h1 className="m-0">Tech Thoughts</h1>
-          </Link>
+          </Link> */}
                 </div>
                 {!userParam && (
                     <div

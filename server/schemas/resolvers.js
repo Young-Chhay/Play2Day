@@ -8,7 +8,7 @@ const resolvers = {
       return User.find().populate('games');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('games');
+      return User.findOne({ username });
     },
     games: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -21,7 +21,7 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('games');
       }
-      throw new AuthenticationError('You need to be logged in!');
+      // throw new AuthenticationError('You need to be logged in!');
     },
   },
 
@@ -53,7 +53,7 @@ const resolvers = {
       { gameName, date, time, sport, number_of_players, skill_level, location },
       context
     ) => {
-      if (context.user) {
+      if (context) {
         const game = await Game.create({
           gameName,
           date,
@@ -62,18 +62,17 @@ const resolvers = {
           number_of_players,
           skill_level,
           location,
-          gameCreator: context.user.username,
-          createdAt,
+          // gameCreator: context.user.username,
         });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { games: game._id } }
-        );
+        // await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $addToSet: { games: game._id } }
+        // );
 
         return game;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      // throw new AuthenticationError('You need to be logged in!');
     },
     removeGame: async (parent, { gameId }, context) => {
       if (context.user) {
