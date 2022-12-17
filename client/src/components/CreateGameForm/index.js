@@ -35,7 +35,7 @@ const CreateGameForm = () => {
       // update me object's cache
       try {
       const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.updateQuery({
+      cache.writeQuery({
         query: QUERY_ME,
         data: { me: { ...me, games: [...me.games, addGame] } },
       });
