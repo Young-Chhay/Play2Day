@@ -27,30 +27,41 @@ const AllGamesList = ({
                   to={`/me/${game.gameAuthor}`}
                 >
                   {game.gameCreator} <br />
-                  <span style={{ fontSize: '1rem' }}>
-                    Game Name : {game.gameName}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    Type of Sport : {game.sport}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    This game was Created on : {game.createdAt}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    game date : {game.date}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    game time : {game.time}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    number of players : {game.number_of_players}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    Skill level : {game.skill_level}
-                  </span>
-                  <span style={{ fontSize: '1rem' }}>
-                    Location : {game.location}
-                  </span>
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Game ID: {game.gameName}
+                    </span>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Sport: {game.sport}
+                    </span>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Date: {game.date}
+                    </span>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Time: {game.time}
+                    </span>  
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Number of Players: {game.number_of_players}
+                    </span>  
+                  </div>              
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Skill Level : {game.skill_level}
+                    </span>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '1rem' }}>
+                      Location : {game.location}
+                    </span>
+                  </div>
                 </Link>
               ) : (
                 <>

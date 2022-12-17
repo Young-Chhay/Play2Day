@@ -7,14 +7,15 @@ const gameSchema = new Schema(
             type: String,
             require: true,
         },
+
         date: {
             type: String, 
             default: Date.now
         }, 
 
         time: {
-            type: String, 
-            default: Date.now
+            type: String,
+            require: true,
         },
 
         sport: {
@@ -38,10 +39,10 @@ const gameSchema = new Schema(
             required: true,
         }, 
 
-        // gameCreator: {
-        //     type: String,
-        //     required: true,
-        // },
+        gameCreator: {
+            type: String,
+            required: true,
+        },
     }, 
      
 );

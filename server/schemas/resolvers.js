@@ -62,7 +62,7 @@ const resolvers = {
           number_of_players,
           skill_level,
           location,
-          // gameCreator: context.user.username,
+          gameCreator: context.user.username,
         });
 
         await User.findOneAndUpdate(
