@@ -33,12 +33,15 @@ const CreateGameForm = () => {
       }
 
       // update me object's cache
+      try {
       const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
+      cache.updateQuery({
         query: QUERY_ME,
         data: { me: { ...me, games: [...me.games, addGame] } },
       });
-    },
+    } catch (e) {
+      console.log(error)
+    }},
   });
 
   const handleFormSubmit = async (event) => {
@@ -54,7 +57,7 @@ const CreateGameForm = () => {
           location,
           number_of_players,
           skill_level,
-          gameCreator: Auth.getProfile().data.username,
+          // gameCreator: Auth.getProfile().data.username,
         },
       });
 
@@ -118,19 +121,19 @@ const CreateGameForm = () => {
                 <input
                   placeholder="Enter game name"
                   type="text"
-                  tabindex="1"
+                  tabIndex="1"
                   name="gameName"
                   value={gameName}
                   onChange={handleNameChange}
                   required
-                  autofocus
+                  autoFocus
                 />
               </fieldset>
               <fieldset>
                 <input
                   placeholder="Enter sport"
                   type="text"
-                  tabindex="2"
+                  tabIndex="2"
                   name="sport"
                   value={sport}
                   onChange={handleSportChange}
@@ -141,7 +144,7 @@ const CreateGameForm = () => {
                 <input
                   placeholder="Set the date of the game"
                   type="text"
-                  tabindex="3"
+                  tabIndex="3"
                   name="date"
                   value={date}
                   onChange={handleDateChange}
@@ -152,7 +155,7 @@ const CreateGameForm = () => {
                 <input
                   placeholder="Set the game time"
                   type="text"
-                  tabindex="4"
+                  tabIndex="4"
                   name="time"
                   value={time}
                   onChange={handleTimeChange}
@@ -163,7 +166,7 @@ const CreateGameForm = () => {
                 <input
                   placeholder="Set the game location"
                   type="text"
-                  tabindex="5"
+                  tabIndex="5"
                   name="location"
                   value={location}
                   onChange={handleLocationChange}
@@ -174,18 +177,18 @@ const CreateGameForm = () => {
                 <input
                   placeholder="Select the number of players"
                   type="text"
-                  tabindex="6"
+                  tabIndex="6"
                   name="numberOfPlayers"
                   value={number_of_players}
                   onChange={handleNumber_of_players}
-                  required
+                  // required
                 />
               </fieldset>
               <fieldset>
                 <input
                   placeholder="Select the targeted game skill level"
                   type="text"
-                  tabindex="7"
+                  tabIndex="7"
                   name="skillLevel"
                   value={skill_level}
                   onChange={handleSkill_levelChange}

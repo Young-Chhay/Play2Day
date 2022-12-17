@@ -15,7 +15,7 @@ const typeDefs = gql`
     date: String
     time: String
     sport: String
-    number_of_players: Int
+    number_of_players: String
     skill_level: String
     location: String
     gameCreator: String
@@ -42,7 +42,7 @@ const typeDefs = gql`
       date: String!
       time: String!
       sport: String!
-      number_of_players: Int
+      number_of_players: String
       skill_level: String!
       location: String!
     ): Game
