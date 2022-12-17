@@ -20,10 +20,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  games: {
-    type: Schema.Types.ObjectId, 
-    ref: 'Game'
-},
+  games: [
+    {
+      type: Schema.Types.ObjectId, 
+      ref: 'Game'
+    },
+  ]
 },
 {
   toJSON: {

@@ -64,7 +64,7 @@ const CreateGame = (props) => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="indicate game skill level"
                   name="difficulty_level"
                   type="diffficulty_level"
                   value={formState.difficulty_level}

@@ -48,8 +48,9 @@ const resolvers = {
 
       return { token, user };
     },
-    addGame: async (parent, 
-      { gameName, date, time, sport, number_of_players, skill_level, location }, 
+    addGame: async (
+      parent,
+      { gameName, date, time, sport, number_of_players, skill_level, location },
       context
     ) => {
       if (context.user) {
@@ -62,6 +63,7 @@ const resolvers = {
           skill_level,
           location,
           gameCreator: context.user.username,
+          createdAt,
         });
 
         await User.findOneAndUpdate(
@@ -71,7 +73,7 @@ const resolvers = {
 
         return game;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeGame: async (parent, { gameId }, context) => {
       if (context.user) {
