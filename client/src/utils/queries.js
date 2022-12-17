@@ -30,6 +30,7 @@ export const QUERY_ALL_GAMES = gql`
         number_of_players
         skill_level
         location
+        gameCreator
     }
   }
 `;
@@ -44,10 +45,12 @@ export const QUERY_ME = gql`
         _id
         gameName
         date
+        time
         sport
         number_of_players
         skill_level
         location
+        gameCreator
       }
     }
   }
@@ -57,11 +60,14 @@ export const QUERY_SINGLE_GAME = gql`
     query game ($gameId: ID!) {
         game(gameId: $gameId) {
             _id
+            gameName
             date
             sport
             number_of_players
             skill_level
             location
+            time
+            gameCreator
         }
     }
 `
