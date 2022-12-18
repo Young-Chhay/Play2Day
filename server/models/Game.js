@@ -46,12 +46,11 @@ const gameSchema = new Schema(
 
         joinedUsers: [
             {
-              type: Schema.Types.ObjectId,
+              type: Schema.Types.Object,
               ref: "User",
             },
           ],
     }, 
-     
 );
 
 const Game = model('Game', gameSchema);

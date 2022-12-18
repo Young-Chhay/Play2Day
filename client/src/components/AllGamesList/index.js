@@ -56,7 +56,7 @@ const AllGamesList = ({
               // className="btn btn-primary btn-block btn-squared"
               // to={`/games/${game._id}`}
             >
-              <JoinGameBtn />
+              <JoinGameBtn gameId={game._id} />
             </div>
           </div>
         ))}

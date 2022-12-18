@@ -48,8 +48,8 @@ export const ADD_GAME = gql`
 
 // define mutation to join a game
 export const JOIN_GAME = gql`
-    mutation joinGame($joinedUsers: String) {
-        joinGame(joinedusers: $joinedUsers) {
+    mutation joinGame($joinedUsers: String!, $gameId: ID!) {
+        joinGame(joinedUsers: $joinedUsers, gameId: $gameId) {
             _id
             gameName
             date
