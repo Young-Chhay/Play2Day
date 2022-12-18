@@ -43,6 +43,13 @@ const gameSchema = new Schema(
             type: String,
             required: true,
         },
+
+        joinedUsers: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: "User",
+            },
+          ],
     }, 
      
 );

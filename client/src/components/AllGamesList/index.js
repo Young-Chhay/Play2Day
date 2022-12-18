@@ -52,12 +52,12 @@ const AllGamesList = ({
               <div>Skill Level: {game.skill_level}</div>
             </div>
             {/* Change this button so that instead of a link, it's an event listener for other users who have logged in can join the game */}
-            <Link
+            <div
               className="btn btn-primary btn-block btn-squared"
-              to={`/games/${game._id}`}
+              // to={`/games/${game._id}`}
             >
               Join this game.
-            </Link>
+            </div>
           </div>
         ))}
     </div>
