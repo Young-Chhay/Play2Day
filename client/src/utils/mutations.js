@@ -45,3 +45,24 @@ export const ADD_GAME = gql`
         }
     }
 `
+
+// define mutation to join a game
+export const JOIN_GAME = gql`
+    mutation joinGame($joinedUsers: String) {
+        joinGame(joinedusers: $joinedUsers) {
+            _id
+            gameName
+            date
+            time
+            sport 
+            number_of_players
+            skill_level
+            location
+            gameCreator
+            joinedUsers {
+                _id
+                username
+            }
+        }
+    }
+`
