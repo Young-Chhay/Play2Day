@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from "./index.module.css"
+import styles from "./index.module.css";
+import JoinGameBtn from '../JoinGameBtn';
 
 
 // change to Gamelist. home will ref this component to display allGamelist. show time, location. 
@@ -51,12 +52,12 @@ const AllGamesList = ({
               <div>Skill Level: {game.skill_level}</div>
             </div>
             {/* Change this button so that instead of a link, it's an event listener for other users who have logged in can join the game */}
-            <Link
-              className="btn btn-primary btn-block btn-squared"
-              to={`/games/${game._id}`}
+            <div
+              // className="btn btn-primary btn-block btn-squared"
+              // to={`/games/${game._id}`}
             >
-              Join this game.
-            </Link>
+              <JoinGameBtn />
+            </div>
           </div>
         ))}
     </div>

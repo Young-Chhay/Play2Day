@@ -200,7 +200,7 @@ const CreateGameForm = () => {
                 <select onChange={handleSkill_levelChange} value={skill_level} type="text" tabIndex="7" required>
                   <option>Set the desired skill level of the players</option>
                   <option value="Nubz">Nubz</option>
-                  <option value="Meiocre">Mediocre</option>
+                  <option value="Mediocre">Mediocre</option>
                   <option value="L33t">L33t</option>
                 </select>
                 {/* <input

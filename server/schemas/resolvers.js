@@ -90,6 +90,21 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    joinGame: async (parent, { gameId }, context) => {
+      if (context.user) {
+        const game = await Game.findOneAndUpdate(
+          { _id: gameId },
+          { 
+            $addToSet: { 
+              joinedUsers: { username: context.user.username } 
+            }
+          },
+        );
+
+        return game;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
   },
 };
 

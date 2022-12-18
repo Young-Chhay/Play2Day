@@ -19,6 +19,7 @@ const typeDefs = gql`
     skill_level: String
     location: String
     gameCreator: String
+    joinedUsers: [User]
   }
 
   type Auth {
@@ -48,6 +49,7 @@ const typeDefs = gql`
       gameCreator: String
     ): Game
     removeGame(gameId: ID!): Game
+    joinGame(gameId: ID!, joinedUsers: String): Game
   }
 `;
 
