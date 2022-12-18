@@ -14,7 +14,7 @@ const AllGamesList = ({
   if (!games.length) {
     return <h3>No games Yet</h3>;
   }
-  
+
   return (
     <div className={styles.cardFrame} >
       {/* {showGameTitle} */}
@@ -50,11 +50,12 @@ const AllGamesList = ({
               <div>Location: {game.location}</div>
               <div>Number of Players: {game.number_of_players}</div>
               <div>Skill Level: {game.skill_level}</div>
+              <div>Joined Users: {game.joinedUsers.map(user => user.username).join(", ")}</div>
             </div>
             {/* Change this button so that instead of a link, it's an event listener for other users who have logged in can join the game */}
             <div
-              // className="btn btn-primary btn-block btn-squared"
-              // to={`/games/${game._id}`}
+            // className="btn btn-primary btn-block btn-squared"
+            // to={`/games/${game._id}`}
             >
               <JoinGameBtn gameId={game._id} />
             </div>
