@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import AllGamesList from '../components/AllGamesList';
-import CreateGameForm from '../components/CreateGameForm';
+// import CreateGameForm from '../components/CreateGameForm';
 
 import { QUERY_ALL_GAMES } from '../utils/queries';
 
@@ -19,12 +19,13 @@ const Home = () => {
       <div>
         {loading ? (
           <div>Loading...</div>
-        ) : (
+        ) : ( 
+          <div> 
           <AllGamesList
-            games={games}
-            title="Check out all these games!"
-          />
-        )}
+            games={games} 
+          /> 
+          </div>
+        )} 
       </div>
     </main>
   );
