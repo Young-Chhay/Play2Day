@@ -51,6 +51,13 @@ const Profile = () => {
                         showUsername={false}
                     />
                     
+                    {/* <AllGamesList
+                        games={game.joinedUsers.map(user => user.username).join(", ")}
+                        title={`${user.username}'s games...`}
+                        showGameTitle={false}
+                        showUsername={false}
+                    /> */}
+                    
                     {/* <Link className="text-light" to="/">
             <h1 className="m-0">Tech Thoughts</h1>
           </Link> */}
