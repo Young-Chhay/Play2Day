@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Form from 'react-bootstrap/Form'
+// import Form from 'react-bootstrap/Form'
 
 import { ADD_GAME } from '../../utils/mutations';
 import { QUERY_ALL_GAMES, QUERY_ME } from '../../utils/queries';
@@ -172,9 +172,9 @@ const CreateGameForm = () => {
               <fieldset>
                 <select onChange={handleLocationChange} value={location} type="text" tabIndex="5" required>
                   <option>Set a location for the game</option>
-                  <option value="Irvine">Irvine Park, Irvine</option>
-                  <option value="Orange">Hart Park, Orange</option>
-                  <option value="GardenGrove">Eastgate Park, Garden Grove</option>
+                  <option value="Irvine Park, Irvine">Irvine Park, Irvine</option>
+                  <option value="Hart Park, Orange">Hart Park, Orange</option>
+                  <option value="Eastgate Park, Garden Grove">Eastgate Park, Garden Grove</option>
                 </select>
                 {/* <input
                   placeholder="Set the game location"
