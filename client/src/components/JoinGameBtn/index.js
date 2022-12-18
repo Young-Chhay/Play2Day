@@ -14,16 +14,17 @@ const JoinGameBtn = ({ gameId }) => {
   const handleBtnSubmit = async (event) => {
     // event.preventDefault();
     console.log(gameId)
-    console.log(Auth.getProfile().data.username)
+    // console.log(Auth.getProfile().data.username)
+  
     try {
       const { data } = await joinGame({
         variables: {
           gameId,
-          joinedUsers,
+          // joinedUsers,
           joinedUsers: Auth.getProfile().data.username,
         },
       });
-
+      console.log(data)
       setJoinedUsers(data);
     } catch (err) {
       console.error(err);
@@ -40,8 +41,8 @@ const JoinGameBtn = ({ gameId }) => {
             onClick={handleBtnSubmit}
 
 
-            value={setJoinedUsers}
-            type="submit"
+            // value={setJoinedUsers}
+            // type="submit"
 
             >
               Join this game.
