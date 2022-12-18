@@ -11,8 +11,9 @@ const JoinGameBtn = ({ gameId }) => {
   const [joinGame, { error }] = useMutation(JOIN_GAME);
 
   const handleBtnSubmit = async (event) => {
-    event.preventDefault();
-
+    // event.preventDefault();
+    console.log(gameId)
+    console.log(Auth.getProfile().data.username)
     try {
       const { data } = await joinGame({
         variables: {
@@ -26,7 +27,7 @@ const JoinGameBtn = ({ gameId }) => {
       console.error(err);
     }
   };
-
+  // console.log(gameId);
 
   return (
     <div>
@@ -34,7 +35,7 @@ const JoinGameBtn = ({ gameId }) => {
         <>
           <button
             className="btn btn-primary btn-block btn-squared"
-            onSubmit={handleBtnSubmit}
+            onClick={handleBtnSubmit}
             >
               Join this game.
             </button>
