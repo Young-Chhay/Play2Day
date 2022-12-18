@@ -31,6 +31,7 @@ export const QUERY_ALL_GAMES = gql`
         skill_level
         location
         gameCreator
+        joinedUsers{username}
     }
   }
 `;
@@ -68,6 +69,8 @@ export const QUERY_SINGLE_GAME = gql`
             location
             time
             gameCreator
+            joinedUsers
+
         }
     }
 `
