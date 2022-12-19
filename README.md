@@ -3,9 +3,6 @@
 Team 3 Players Club
 ---------------------
 Members:
-<ul>
-  <li><a href src = "https://github.com/hiashley">Ashley Yu</li>
-</ul>
 - Ashley Yu - https://github.com/hiashley
 - James Li - https://github.com/JimJamLee
 - Young Chhay - https://github.com/Young-Chhay
