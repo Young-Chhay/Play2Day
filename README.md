@@ -3,7 +3,7 @@
 Team 3 Players Club
 ---------------------
 Members:
-- Ashley Yu
+- Ashley Yu - https://github.com/hiashley
 - James Li - https://github.com/JimJamLee
 - Young Chhay - https://github.com/Young-Chhay
 - Nathan Underwood 
