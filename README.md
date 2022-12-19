@@ -6,7 +6,7 @@ Members:
 - Ashley Yu - https://github.com/hiashley
 - James Li - https://github.com/JimJamLee
 - Young Chhay - https://github.com/Young-Chhay
-- Nathan Underwood 
+- Nathan Underwood - https://github.com/thundernunder
 
 Project Overview
 ---------------------
