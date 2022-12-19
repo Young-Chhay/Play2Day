@@ -49,7 +49,9 @@ Installation & Usage
 
 Screenshots of Functioning Application:
 <p>
+  
   ![localhost_3000_](https://user-images.githubusercontent.com/98553537/208537212-3a043cad-507d-4ee6-b609-d44a423b81e6.png)
+  
   ![localhost_3000_ (1)](https://user-images.githubusercontent.com/98553537/208537260-c0b1ad05-2d0d-4753-8a17-e5bd1d5a84a3.png)
   
 ![localhost_3000_ (2)](https://user-images.githubusercontent.com/98553537/208537335-b68e1377-9bb8-44e5-83fb-6999e8b91e93.png)
